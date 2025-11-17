@@ -60,3 +60,15 @@ anes_des <- anes_adjwgt %>%
   )
 
 anes_des
+
+# Creating the design object for RECS data based on documentation
+recs_des <- recs_2020 %>%
+  as_survey_rep(
+    weights = NWEIGHT,
+    repweights = NWEIGHT1:NWEIGHT60,
+    type = "JK1",
+    scale = 59 / 60,
+    mse = TRUE
+  )
+
+recs_des
